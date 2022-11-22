@@ -289,7 +289,6 @@
             this.MinimizeBox = false;
             this.Name = "registerForm";
             this.Text = "TKGym";
-            this.Load += new System.EventHandler(this.registerForm_Load);
             this.registerFormPanel.ResumeLayout(false);
             this.registerFormPanel.PerformLayout();
             this.membersPanel.ResumeLayout(false);

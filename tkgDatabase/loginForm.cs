@@ -12,10 +12,10 @@ using System.Windows.Forms;
 
 namespace tkgDatabase
 {
-    public partial class mainForm : Form
+    public partial class loginForm : Form
     {
         private static MySqlConnection connection;
-        public mainForm()
+        public loginForm()
         {
             //begin form with establishing connection to database
             InitializeComponent();
@@ -32,7 +32,7 @@ namespace tkgDatabase
             builder.Database = "tkgDatabase";
             builder.SslMode = MySqlSslMode.Disabled;
             connection = new MySqlConnection(builder.ToString());
-            
+   
         }
 
         private void loginButton_Click(object sender, EventArgs e)

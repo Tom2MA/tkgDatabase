@@ -96,7 +96,7 @@ namespace tkgDatabase
         private void logoutButton_Click(object sender, EventArgs e)
         {
             this.Close();
-            Form f1 = new mainForm();
+            Form f1 = new loginForm();
             f1.Show();
         }
 

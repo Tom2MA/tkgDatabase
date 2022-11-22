@@ -1,7 +1,7 @@
 ﻿
 namespace tkgDatabase
 {
-    partial class mainForm
+    partial class loginForm
     {
         /// <summary>
         /// Required designer variable.

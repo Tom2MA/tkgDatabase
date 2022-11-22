@@ -31,15 +31,10 @@ namespace tkgDatabase
             connection.Close();
         }
 
-        private void registerForm_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void cancelButton_Click(object sender, EventArgs e)
         {
             this.Close();
-            mainForm backToMain = new mainForm();
+            loginForm backToMain = new loginForm();
             backToMain.Show();
         }
 
@@ -68,7 +63,7 @@ namespace tkgDatabase
 
                 MessageBox.Show("Account Successfully Created!", "Account Created", MessageBoxButtons.OK);
                 this.Close();
-                mainForm backToMain = new mainForm();
+                loginForm backToMain = new loginForm();
                 backToMain.Show();
 
             }

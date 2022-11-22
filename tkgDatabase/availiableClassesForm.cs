@@ -131,15 +131,13 @@ namespace tkgDatabase
 
         public static void establishConnection()
         {
-
             MySqlConnectionStringBuilder builder = new MySqlConnectionStringBuilder();
-            builder.Server = "localhost";
+            builder.Server = "35.222.26.3";
             builder.UserID = "root";
-            builder.Password = "password";
+            builder.Password = "projectdatabase";
             builder.Database = "tkgDatabase";
             builder.SslMode = MySqlSslMode.Disabled;
             connection = new MySqlConnection(builder.ToString());
-
         }
 
         private void registerButton_Click(object sender, EventArgs e)
