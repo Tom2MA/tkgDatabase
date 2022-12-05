@@ -1,34 +1,40 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using MySql.Data.MySqlClient;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace tkgDatabase
 {
-    public partial class registerForm : Form
+    public partial class addMemberForm : Form
     {
         private static MySqlConnection connection;
-        public registerForm()
+        public addMemberForm()
         {
-            InitializeComponent();
+            InitializeComponent(); 
             establishConnection();
 
-            String getHighestAccountNumber = "SELECT MAX(ACCOUNT_ID)+1 FROM ACCOUNTS";
-            MySqlCommand getHighestAccountNumberer = new MySqlCommand(getHighestAccountNumber, connection);
-            connection.Open();
-            MySqlDataReader accountHighestNumberReader = getHighestAccountNumberer.ExecuteReader();
-            accountHighestNumberReader.Read();
-            variables.highestAccountNumID = accountHighestNumberReader.GetString("MAX(ACCOUNT_ID)+1");
+            try
+            {
+                String getHighestAccountNumber = "SELECT MAX(ACCOUNT_ID)+1 FROM ACCOUNTS";
+                MySqlCommand getHighestAccountNumberer = new MySqlCommand(getHighestAccountNumber, connection);
+                connection.Open();
+                MySqlDataReader accountHighestNumberReader = getHighestAccountNumberer.ExecuteReader();
+                accountHighestNumberReader.Read();
+                variables.highestAccountNumID = accountHighestNumberReader.GetString("MAX(ACCOUNT_ID)+1");
+                connection.Close();
+            }
 
-            variables.newHighestAccountNumID = (Int32.Parse(variables.highestAccountNumID));
-            connection.Close();
+            catch
+            {
+                variables.highestAccountNumID = "1";
+            }
 
             variables.listOfAccountUsers = new List<String>();
             String getAccountUsers = "SELECT * FROM ACCOUNTS;";
@@ -48,17 +54,65 @@ namespace tkgDatabase
 
                 variables.listOfAccountUsers.Add(currentAccountUser);
             }
+
+        }
+
+        public static void establishConnection()
+        {
+
+            MySqlConnectionStringBuilder builder = new MySqlConnectionStringBuilder();
+            builder.Server = "localhost";
+            builder.UserID = "root";
+            builder.Password = "password";
+            builder.Database = "tkgDatabase";
+            builder.SslMode = MySqlSslMode.Disabled;
+            connection = new MySqlConnection(builder.ToString());
+
         }
 
         private void cancelButton_Click(object sender, EventArgs e)
         {
             this.Close();
-            loginForm backToMain = new loginForm();
-            backToMain.Show();
+            adminForm backToAdmin = new adminForm();
+            backToAdmin.Show();
+        }
+        private void standardBox_Click(object sender, EventArgs e)
+        {
+            if (premiumBox.Checked == true)
+            {
+                standardBox.Checked = true;
+                premiumBox.Checked = false;
+                variables.membershipType = "Standard";
+            }
+            else
+            {
+                standardBox.Checked = true;
+                variables.membershipType = "Standard";
+            }
+            
+            Debug.WriteLine(variables.membershipType);
+        }
+
+        private void premiumBox_Click(object sender, EventArgs e)
+        {
+            if (standardBox.Checked == true)
+            {
+                premiumBox.Checked = true;
+                standardBox.Checked = false;
+                variables.membershipType = "Premium";
+            }
+            else
+            {
+                premiumBox.Checked = true;
+                variables.membershipType = "Premium";
+            }
+            Debug.WriteLine(variables.membershipType);
         }
 
         private void registerButton_Click(object sender, EventArgs e)
         {
+            String highestMemberNumID = variables.highestAccountNumID;
+
             if (String.IsNullOrEmpty(usernameBox.Text) || String.IsNullOrEmpty(passwordBox.Text) || String.IsNullOrEmpty(firstNameBox.Text) || String.IsNullOrEmpty(lastNameBox.Text) || String.IsNullOrEmpty(addressBox.Text) || String.IsNullOrEmpty(phoneBox.Text))
             {
                 MessageBox.Show("Error! Please make sure that all the boxes are completely filled out.", "Error!", MessageBoxButtons.OK);
@@ -76,14 +130,14 @@ namespace tkgDatabase
 
             else
             {
-                String createAccountQuery = "INSERT INTO ACCOUNTS VALUES(" + variables.newHighestAccountNumID + ", '" + usernameBox.Text + "','" + passwordBox.Text + "');";
+                String createAccountQuery = "INSERT INTO ACCOUNTS VALUES(" + variables.highestAccountNumID + ", '" + usernameBox.Text + "','" + passwordBox.Text + "');";
                 MySqlCommand accountCreater = new MySqlCommand(createAccountQuery, connection);
                 MySqlDataReader accountCreaterReader;
                 connection.Open();
                 accountCreaterReader = accountCreater.ExecuteReader();
                 connection.Close();
 
-                String createMemberQuery = "INSERT INTO MEMBERS VALUES(" + variables.newHighestAccountNumID + ", '" + firstNameBox.Text + "','" + lastNameBox.Text + "', '" + phoneBox.Text + "', '" + addressBox.Text + "', 'Standard', " + variables.newHighestAccountNumID + ");";
+                String createMemberQuery = "INSERT INTO MEMBERS VALUES(" + highestMemberNumID + ", '" + firstNameBox.Text + "','" + lastNameBox.Text + "', '" + phoneBox.Text + "', '" + addressBox.Text + "', '"+variables.membershipType+"', " + variables.highestAccountNumID + ");";
                 MySqlCommand memberCreater = new MySqlCommand(createMemberQuery, connection);
                 MySqlDataReader memberCreaterReader;
                 connection.Open();
@@ -92,23 +146,10 @@ namespace tkgDatabase
 
                 MessageBox.Show("Account Successfully Created!", "Account Created", MessageBoxButtons.OK);
                 this.Close();
-                loginForm backToMain = new loginForm();
-                backToMain.Show();
+                adminForm backToAdmin = new adminForm();
+                backToAdmin.Show();
 
             }
-
-        }
-
-        public static void establishConnection()
-        {
-
-            MySqlConnectionStringBuilder builder = new MySqlConnectionStringBuilder();
-            builder.Server = "localhost";
-            builder.UserID = "root";
-            builder.Password = "password";
-            builder.Database = "tkgDatabase";
-            builder.SslMode = MySqlSslMode.Disabled;
-            connection = new MySqlConnection(builder.ToString());
 
         }
 

@@ -12,31 +12,29 @@ using System.Windows.Forms;
 
 namespace tkgDatabase
 {
-    public partial class editClassForm : Form
+    public partial class addClassForm : Form
     {
         private static MySqlConnection connection;
-        public editClassForm()
+        public addClassForm()
         {
             InitializeComponent();
             establishConnection();
 
-            String getClassIDQuery = "SELECT * FROM CLASSES WHERE CLASS_ID = " + variables.adminSelectedClassID + ";"; //query for selected class
-            MySqlCommand getClassIDCommand = new MySqlCommand(getClassIDQuery, connection);
-            connection.Open();
-            MySqlDataReader classIDReader = getClassIDCommand.ExecuteReader();
-            classIDReader.Read();
-            String className = classIDReader.GetString("CLASS_NAME");
-            String classTimeStart = classIDReader.GetString("CLASS_TIMESTART");
-            String classTimeEnd = classIDReader.GetString("CLASS_TIMEEND"); 
-            String classDays = classIDReader.GetString("CLASS_DAYS"); //get values
-            String classInstructorID = classIDReader.GetString("INSTRUCTOR_ID");
-            String classGymID = classIDReader.GetString("GYM_ID");
-            connection.Close();
+            try
+            {
+                variables.getHighestClassNumber = "SELECT MAX(CLASS_ID)+1 FROM CLASSES";
+                MySqlCommand getHighestClassNumberer = new MySqlCommand(variables.getHighestClassNumber, connection);
+                connection.Open();
+                MySqlDataReader classHighestNumberReader = getHighestClassNumberer.ExecuteReader();
+                classHighestNumberReader.Read();
+                variables.highestClassNumID = classHighestNumberReader.GetString("MAX(CLASS_ID)+1");
+                connection.Close();
+            }
 
-            classNameBox.Text = className;
-            startTimePicker.Value = DateTime.Parse(classTimeStart);
-            endTimePicker.Value = DateTime.Parse(classTimeEnd); //fill UI based on class ID
-            classDaysBox.Text = classDays;
+            catch
+            {
+                variables.highestClassNumID = "0";
+            }
 
             //listInstructors
             variables.listOfAddClassInstructorGymIDs = new List<String>();
@@ -48,6 +46,9 @@ namespace tkgDatabase
             foreach (DataRow instructorsRow in classInstructorsTable.Rows)
             {
                 String currentClassInstructorID = instructorsRow[0].ToString();
+                String currentClassInstructorFName = instructorsRow[1].ToString();
+                String currentClassInstructorLName = instructorsRow[2].ToString();
+                String currentClassInstructorGymID = instructorsRow[3].ToString();
                 String getClassInstructorInfoQuery = "SELECT * FROM INSTRUCTORS WHERE INSTRUCTOR_ID = " + currentClassInstructorID + ";";
                 MySqlCommand getClassInstructorInfoCreater = new MySqlCommand(getClassInstructorInfoQuery, connection);
                 connection.Open();
@@ -59,11 +60,11 @@ namespace tkgDatabase
                 variables.addClassInstructorGymID = getClassInstructorInfoReader.GetString("GYM_ID");
                 connection.Close();
 
-                instructorCombo.Items.Add(variables.addClassInstructorFName + " " + variables.addClassInstructorLName); //add to UI names for instructors
-                variables.listOfAddClassInstructors.Add(variables.addClassInstructorID); //list instructor IDs
-                variables.listOfAddClassInstructorGymIDs.Add(variables.addClassInstructorGymID); //list gym IDs associated with instructors
+                instructorCombo.Items.Add(variables.addClassInstructorFName + " " + variables.addClassInstructorLName);
+                variables.listOfAddClassInstructors.Add(variables.addClassInstructorID);
+                variables.listOfAddClassInstructorGymIDs.Add(variables.addClassInstructorGymID);
             }
-            instructorCombo.SelectedIndex = Int32.Parse(classInstructorID);
+            instructorCombo.SelectedIndex = 0;
 
             //listGyms
             variables.listOfAddClassGymIDs = new List<String>();
@@ -75,6 +76,8 @@ namespace tkgDatabase
             {
                 String currentClassGymID = gymRow[0].ToString();
                 String currentClassGymName = gymRow[1].ToString();
+                String currentClassGymLocation = gymRow[2].ToString();
+                String currentClassGymPhone = gymRow[3].ToString();
                 String getClassGymInfoQuery = "SELECT * FROM GYMS WHERE GYM_ID = " + currentClassGymID + " AND GYM_NAME = '" + currentClassGymName + "';";
                 MySqlCommand getClassGymInfoCreater = new MySqlCommand(getClassGymInfoQuery, connection);
                 connection.Open();
@@ -88,26 +91,57 @@ namespace tkgDatabase
                 gymLocCombo.Items.Add(variables.addClassGymName);
                 variables.listOfAddClassGymIDs.Add(variables.addClassGymID);
             }
-            gymLocCombo.SelectedIndex = Int32.Parse(classGymID);
+            gymLocCombo.SelectedIndex = 0;
 
         }
 
         public static void establishConnection()
         {
+
             MySqlConnectionStringBuilder builder = new MySqlConnectionStringBuilder();
             builder.Server = "localhost";
             builder.UserID = "root";
             builder.Password = "password";
             builder.Database = "tkgDatabase";
             builder.SslMode = MySqlSslMode.Disabled;
-            builder.ConvertZeroDateTime = true;
             connection = new MySqlConnection(builder.ToString());
+
         }
 
-        private void backButton_Click(object sender, EventArgs e)
+        private void createButton_Click(object sender, EventArgs e)
+        {
+            String startTime = startTimePicker.Value.ToString("HH:mm:ss");
+            String endTime = endTimePicker.Value.ToString("HH:mm:ss");
+            String currentInstructorID = variables.listOfAddClassInstructors.ElementAt(instructorCombo.SelectedIndex);
+            String currentGymID = variables.listOfAddClassGymIDs.ElementAt(gymLocCombo.SelectedIndex);
+
+            if (String.IsNullOrEmpty(classNameBox.Text) || String.IsNullOrEmpty(classDaysBox.Text))
+            {
+                MessageBox.Show("Error! One of the boxes is empty or not filled in. Please fill in and try again.", "Error!", MessageBoxButtons.OK);
+            }
+
+            else
+            {
+                String createClassQuery = "INSERT INTO CLASSES VALUES ("+ variables.highestClassNumID + ", '"+classNameBox.Text+"', '"+startTime+"', '"+endTime+"', '"+classDaysBox.Text+"', "+currentInstructorID+", "+currentGymID+");";
+                MySqlCommand createClassCommand = new MySqlCommand(createClassQuery, connection);
+                connection.Open();
+                MySqlDataReader createClassReader = createClassCommand.ExecuteReader();
+                createClassReader.Read();
+                connection.Close();
+
+                MessageBox.Show(classNameBox.Text + " has been successfully created!", "Success!", MessageBoxButtons.OK);
+
+                this.Close();
+                adminForm backToAdmin = new adminForm();
+                backToAdmin.Show();
+            }
+
+        }
+
+        private void cancelButton_Click(object sender, EventArgs e)
         {
             this.Close();
-            adminForm backToAdmin = new adminForm(); //back to admin page
+            adminForm backToAdmin = new adminForm();
             backToAdmin.Show();
         }
 
@@ -118,7 +152,7 @@ namespace tkgDatabase
             Debug.WriteLine(currentInstructorID);
             Debug.WriteLine(currentGymID);
 
-            String getGymName = "SELECT * FROM GYMS WHERE GYM_ID = " + currentGymID + ";";
+            String getGymName = "SELECT * FROM GYMS WHERE GYM_ID = "+currentGymID+";";
             MySqlCommand getGymNameCreater = new MySqlCommand(getGymName, connection);
             connection.Open();
             MySqlDataReader getGymNameReader = getGymNameCreater.ExecuteReader();
@@ -127,40 +161,15 @@ namespace tkgDatabase
             connection.Close();
 
             instructorBox.Text = currentGymName;
+
+            gymLocCombo.Text = currentGymName;
+
         }
 
         private void gymLocCombo_SelectedIndexChanged(object sender, EventArgs e)
         {
-            String currentGymLoc = variables.listOfAddClassGymIDs.ElementAt(gymLocCombo.SelectedIndex); //test variable
-        }
-
-        private void saveButton_Click(object sender, EventArgs e)
-        {
-            String startTime = startTimePicker.Value.ToString("HH:mm:ss");
-            String endTime = endTimePicker.Value.ToString("HH:mm:ss"); //String conversion
-            String currentInstructorID = variables.listOfAddClassInstructors.ElementAt(instructorCombo.SelectedIndex);
-            String currentGymID = variables.listOfAddClassGymIDs.ElementAt(gymLocCombo.SelectedIndex);
-
-            if (String.IsNullOrEmpty(classNameBox.Text) || String.IsNullOrEmpty(classDaysBox.Text)) //if boxes are empty display messagebox
-            {
-                MessageBox.Show("Error! One of the boxes is empty or not filled in. Please fill in and try again.", "Error!", MessageBoxButtons.OK);
-            }
-
-            else
-            { //query to update class
-                String editClassQuery = "UPDATE CLASSES SET CLASS_NAME = '" + classNameBox.Text + "', CLASS_TIMESTART = '" + startTime + "', CLASS_TIMEEND = '" + endTime + "', CLASS_DAYS = '" + classDaysBox.Text + "', INSTRUCTOR_ID = " + currentInstructorID + ", GYM_ID = " + currentGymID + " WHERE CLASS_ID = " + variables.adminSelectedClassID + ";";
-                MySqlCommand editClassCommand = new MySqlCommand(editClassQuery, connection);
-                connection.Open();
-                MySqlDataReader editClassReader = editClassCommand.ExecuteReader();
-                editClassReader.Read();
-                connection.Close();
-
-                MessageBox.Show(classNameBox.Text + " has been successfully updated!", "Success!", MessageBoxButtons.OK); //success message
-
-                this.Close();
-                adminForm backToAdmin = new adminForm(); //go back to admin page
-                backToAdmin.Show();
-            }
+            String currentGymLoc = variables.listOfAddClassGymIDs.ElementAt(gymLocCombo.SelectedIndex);
+            Debug.WriteLine(currentGymLoc);
         }
     }
 }

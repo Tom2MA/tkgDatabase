@@ -1,7 +1,6 @@
-﻿
-namespace tkgDatabase
+﻿namespace tkgDatabase
 {
-    partial class editMemberForm
+    partial class addMemberForm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,12 +28,10 @@ namespace tkgDatabase
         /// </summary>
         private void InitializeComponent()
         {
-            this.premiumBox = new System.Windows.Forms.CheckBox();
-            this.standardBox = new System.Windows.Forms.CheckBox();
+            this.accountText = new System.Windows.Forms.TextBox();
             this.registerFormPanel = new System.Windows.Forms.Panel();
             this.showPasswordBox = new System.Windows.Forms.CheckBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.accountText = new System.Windows.Forms.TextBox();
             this.membersPanel = new System.Windows.Forms.Panel();
             this.phoneBox = new System.Windows.Forms.TextBox();
             this.usernameText = new System.Windows.Forms.TextBox();
@@ -48,37 +45,26 @@ namespace tkgDatabase
             this.addressText = new System.Windows.Forms.TextBox();
             this.lastNameText = new System.Windows.Forms.TextBox();
             this.firstNameText = new System.Windows.Forms.TextBox();
-            this.backButton = new System.Windows.Forms.Button();
-            this.saveButton = new System.Windows.Forms.Button();
+            this.cancelButton = new System.Windows.Forms.Button();
+            this.registerButton = new System.Windows.Forms.Button();
+            this.standardBox = new System.Windows.Forms.CheckBox();
+            this.premiumBox = new System.Windows.Forms.CheckBox();
             this.registerFormPanel.SuspendLayout();
             this.membersPanel.SuspendLayout();
             this.SuspendLayout();
             // 
-            // premiumBox
+            // accountText
             // 
-            this.premiumBox.AutoSize = true;
-            this.premiumBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.premiumBox.Location = new System.Drawing.Point(123, 333);
-            this.premiumBox.Name = "premiumBox";
-            this.premiumBox.Size = new System.Drawing.Size(87, 22);
-            this.premiumBox.TabIndex = 14;
-            this.premiumBox.Text = "Premium";
-            this.premiumBox.UseVisualStyleBackColor = true;
-            this.premiumBox.Click += new System.EventHandler(this.premiumBox_Click);
-            // 
-            // standardBox
-            // 
-            this.standardBox.AutoSize = true;
-            this.standardBox.Checked = true;
-            this.standardBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.standardBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.standardBox.Location = new System.Drawing.Point(31, 333);
-            this.standardBox.Name = "standardBox";
-            this.standardBox.Size = new System.Drawing.Size(86, 22);
-            this.standardBox.TabIndex = 13;
-            this.standardBox.Text = "Standard";
-            this.standardBox.UseVisualStyleBackColor = true;
-            this.standardBox.Click += new System.EventHandler(this.standardBox_Click);
+            this.accountText.BackColor = System.Drawing.Color.Gold;
+            this.accountText.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.accountText.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.accountText.Location = new System.Drawing.Point(33, 20);
+            this.accountText.Name = "accountText";
+            this.accountText.ReadOnly = true;
+            this.accountText.Size = new System.Drawing.Size(142, 20);
+            this.accountText.TabIndex = 0;
+            this.accountText.TabStop = false;
+            this.accountText.Text = "Register Account";
             // 
             // registerFormPanel
             // 
@@ -87,10 +73,10 @@ namespace tkgDatabase
             this.registerFormPanel.Controls.Add(this.textBox1);
             this.registerFormPanel.Controls.Add(this.accountText);
             this.registerFormPanel.Controls.Add(this.membersPanel);
-            this.registerFormPanel.Location = new System.Drawing.Point(-2, -6);
+            this.registerFormPanel.Location = new System.Drawing.Point(-4, -7);
             this.registerFormPanel.Name = "registerFormPanel";
-            this.registerFormPanel.Size = new System.Drawing.Size(469, 333);
-            this.registerFormPanel.TabIndex = 12;
+            this.registerFormPanel.Size = new System.Drawing.Size(468, 326);
+            this.registerFormPanel.TabIndex = 7;
             // 
             // showPasswordBox
             // 
@@ -108,26 +94,13 @@ namespace tkgDatabase
             this.textBox1.BackColor = System.Drawing.Color.Gold;
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(33, 313);
+            this.textBox1.Location = new System.Drawing.Point(33, 306);
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
             this.textBox1.Size = new System.Drawing.Size(105, 20);
             this.textBox1.TabIndex = 6;
             this.textBox1.TabStop = false;
             this.textBox1.Text = "Membership";
-            // 
-            // accountText
-            // 
-            this.accountText.BackColor = System.Drawing.Color.Gold;
-            this.accountText.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.accountText.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.accountText.Location = new System.Drawing.Point(33, 20);
-            this.accountText.Name = "accountText";
-            this.accountText.ReadOnly = true;
-            this.accountText.Size = new System.Drawing.Size(147, 20);
-            this.accountText.TabIndex = 0;
-            this.accountText.TabStop = false;
-            this.accountText.Text = "Register Account";
             // 
             // membersPanel
             // 
@@ -194,7 +167,6 @@ namespace tkgDatabase
             // 
             this.usernameBox.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.usernameBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.usernameBox.Enabled = false;
             this.usernameBox.Font = new System.Drawing.Font("Century Gothic", 14F);
             this.usernameBox.ForeColor = System.Drawing.SystemColors.InfoText;
             this.usernameBox.Location = new System.Drawing.Point(118, 7);
@@ -309,47 +281,73 @@ namespace tkgDatabase
             this.firstNameText.TabStop = false;
             this.firstNameText.Text = "First Name:";
             // 
-            // backButton
+            // cancelButton
             // 
-            this.backButton.BackColor = System.Drawing.Color.RoyalBlue;
-            this.backButton.Font = new System.Drawing.Font("Copperplate Gothic Light", 12F);
-            this.backButton.ForeColor = System.Drawing.Color.White;
-            this.backButton.Location = new System.Drawing.Point(224, 374);
-            this.backButton.Name = "backButton";
-            this.backButton.Size = new System.Drawing.Size(188, 49);
-            this.backButton.TabIndex = 16;
-            this.backButton.Text = "Back";
-            this.backButton.UseVisualStyleBackColor = false;
-            this.backButton.Click += new System.EventHandler(this.backButton_Click);
+            this.cancelButton.BackColor = System.Drawing.Color.RoyalBlue;
+            this.cancelButton.Font = new System.Drawing.Font("Copperplate Gothic Light", 12F);
+            this.cancelButton.ForeColor = System.Drawing.Color.White;
+            this.cancelButton.Location = new System.Drawing.Point(222, 366);
+            this.cancelButton.Name = "cancelButton";
+            this.cancelButton.Size = new System.Drawing.Size(188, 49);
+            this.cancelButton.TabIndex = 9;
+            this.cancelButton.Text = "Cancel";
+            this.cancelButton.UseVisualStyleBackColor = false;
+            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
             // 
-            // saveButton
+            // registerButton
             // 
-            this.saveButton.BackColor = System.Drawing.Color.RoyalBlue;
-            this.saveButton.Font = new System.Drawing.Font("Copperplate Gothic Light", 12F);
-            this.saveButton.ForeColor = System.Drawing.Color.White;
-            this.saveButton.Location = new System.Drawing.Point(31, 374);
-            this.saveButton.Name = "saveButton";
-            this.saveButton.Size = new System.Drawing.Size(175, 49);
-            this.saveButton.TabIndex = 15;
-            this.saveButton.Text = "Save";
-            this.saveButton.UseVisualStyleBackColor = false;
-            this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
+            this.registerButton.BackColor = System.Drawing.Color.RoyalBlue;
+            this.registerButton.Font = new System.Drawing.Font("Copperplate Gothic Light", 12F);
+            this.registerButton.ForeColor = System.Drawing.Color.White;
+            this.registerButton.Location = new System.Drawing.Point(29, 366);
+            this.registerButton.Name = "registerButton";
+            this.registerButton.Size = new System.Drawing.Size(175, 49);
+            this.registerButton.TabIndex = 8;
+            this.registerButton.Text = "Register";
+            this.registerButton.UseVisualStyleBackColor = false;
+            this.registerButton.Click += new System.EventHandler(this.registerButton_Click);
             // 
-            // editMemberForm
+            // standardBox
+            // 
+            this.standardBox.AutoSize = true;
+            this.standardBox.Checked = true;
+            this.standardBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.standardBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.standardBox.Location = new System.Drawing.Point(29, 325);
+            this.standardBox.Name = "standardBox";
+            this.standardBox.Size = new System.Drawing.Size(86, 22);
+            this.standardBox.TabIndex = 10;
+            this.standardBox.Text = "Standard";
+            this.standardBox.UseVisualStyleBackColor = true;
+            this.standardBox.Click += new System.EventHandler(this.standardBox_Click);
+            // 
+            // premiumBox
+            // 
+            this.premiumBox.AutoSize = true;
+            this.premiumBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.premiumBox.Location = new System.Drawing.Point(133, 325);
+            this.premiumBox.Name = "premiumBox";
+            this.premiumBox.Size = new System.Drawing.Size(87, 22);
+            this.premiumBox.TabIndex = 11;
+            this.premiumBox.Text = "Premium";
+            this.premiumBox.UseVisualStyleBackColor = true;
+            this.premiumBox.Click += new System.EventHandler(this.premiumBox_Click);
+            // 
+            // addMemberForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(445, 450);
+            this.ClientSize = new System.Drawing.Size(452, 433);
             this.ControlBox = false;
-            this.Controls.Add(this.backButton);
-            this.Controls.Add(this.saveButton);
             this.Controls.Add(this.premiumBox);
             this.Controls.Add(this.standardBox);
             this.Controls.Add(this.registerFormPanel);
+            this.Controls.Add(this.cancelButton);
+            this.Controls.Add(this.registerButton);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "editMemberForm";
-            this.ShowIcon = false;
+            this.Name = "addMemberForm";
             this.Text = "TKGym";
             this.registerFormPanel.ResumeLayout(false);
             this.registerFormPanel.PerformLayout();
@@ -361,12 +359,9 @@ namespace tkgDatabase
         }
 
         #endregion
-        private System.Windows.Forms.CheckBox premiumBox;
-        private System.Windows.Forms.CheckBox standardBox;
-        private System.Windows.Forms.Panel registerFormPanel;
-        private System.Windows.Forms.CheckBox showPasswordBox;
-        private System.Windows.Forms.TextBox textBox1;
+
         private System.Windows.Forms.TextBox accountText;
+        private System.Windows.Forms.Panel registerFormPanel;
         private System.Windows.Forms.Panel membersPanel;
         private System.Windows.Forms.TextBox phoneBox;
         private System.Windows.Forms.TextBox usernameText;
@@ -380,7 +375,11 @@ namespace tkgDatabase
         private System.Windows.Forms.TextBox addressText;
         private System.Windows.Forms.TextBox lastNameText;
         private System.Windows.Forms.TextBox firstNameText;
-        private System.Windows.Forms.Button backButton;
-        private System.Windows.Forms.Button saveButton;
+        private System.Windows.Forms.Button cancelButton;
+        private System.Windows.Forms.Button registerButton;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.CheckBox standardBox;
+        private System.Windows.Forms.CheckBox premiumBox;
+        private System.Windows.Forms.CheckBox showPasswordBox;
     }
 }

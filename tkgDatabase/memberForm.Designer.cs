@@ -86,11 +86,11 @@ namespace tkgDatabase
             // 
             this.yourClassLocBox.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.yourClassLocBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.yourClassLocBox.Font = new System.Drawing.Font("Century Gothic", 14F);
-            this.yourClassLocBox.Location = new System.Drawing.Point(425, 218);
+            this.yourClassLocBox.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.yourClassLocBox.Location = new System.Drawing.Point(417, 224);
             this.yourClassLocBox.Name = "yourClassLocBox";
             this.yourClassLocBox.ReadOnly = true;
-            this.yourClassLocBox.Size = new System.Drawing.Size(356, 30);
+            this.yourClassLocBox.Size = new System.Drawing.Size(363, 27);
             this.yourClassLocBox.TabIndex = 37;
             this.yourClassLocBox.TabStop = false;
             // 
@@ -99,7 +99,7 @@ namespace tkgDatabase
             this.yourClassLocText.BackColor = System.Drawing.Color.Gold;
             this.yourClassLocText.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.yourClassLocText.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.yourClassLocText.Location = new System.Drawing.Point(425, 192);
+            this.yourClassLocText.Location = new System.Drawing.Point(417, 198);
             this.yourClassLocText.Name = "yourClassLocText";
             this.yourClassLocText.ReadOnly = true;
             this.yourClassLocText.Size = new System.Drawing.Size(152, 20);
@@ -112,7 +112,7 @@ namespace tkgDatabase
             this.idText.BackColor = System.Drawing.Color.Gold;
             this.idText.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.idText.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.idText.Location = new System.Drawing.Point(43, 264);
+            this.idText.Location = new System.Drawing.Point(33, 264);
             this.idText.Name = "idText";
             this.idText.ReadOnly = true;
             this.idText.Size = new System.Drawing.Size(103, 20);
@@ -125,9 +125,9 @@ namespace tkgDatabase
             this.yourClassesList.Font = new System.Drawing.Font("Century Gothic", 14F);
             this.yourClassesList.FormattingEnabled = true;
             this.yourClassesList.ItemHeight = 22;
-            this.yourClassesList.Location = new System.Drawing.Point(425, 50);
+            this.yourClassesList.Location = new System.Drawing.Point(417, 50);
             this.yourClassesList.Name = "yourClassesList";
-            this.yourClassesList.Size = new System.Drawing.Size(359, 136);
+            this.yourClassesList.Size = new System.Drawing.Size(363, 136);
             this.yourClassesList.TabIndex = 21;
             this.yourClassesList.TabStop = false;
             this.yourClassesList.SelectedIndexChanged += new System.EventHandler(this.yourClassesList_SelectedIndexChanged);
@@ -137,7 +137,7 @@ namespace tkgDatabase
             this.instructorText.BackColor = System.Drawing.Color.Gold;
             this.instructorText.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.instructorText.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.instructorText.Location = new System.Drawing.Point(166, 264);
+            this.instructorText.Location = new System.Drawing.Point(150, 264);
             this.instructorText.Name = "instructorText";
             this.instructorText.ReadOnly = true;
             this.instructorText.Size = new System.Drawing.Size(152, 20);
@@ -150,7 +150,7 @@ namespace tkgDatabase
             this.dayText.BackColor = System.Drawing.Color.Gold;
             this.dayText.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dayText.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dayText.Location = new System.Drawing.Point(668, 264);
+            this.dayText.Location = new System.Drawing.Point(647, 264);
             this.dayText.Name = "dayText";
             this.dayText.ReadOnly = true;
             this.dayText.Size = new System.Drawing.Size(45, 20);
@@ -163,7 +163,7 @@ namespace tkgDatabase
             this.yourClassesText.BackColor = System.Drawing.Color.Gold;
             this.yourClassesText.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.yourClassesText.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.yourClassesText.Location = new System.Drawing.Point(425, 24);
+            this.yourClassesText.Location = new System.Drawing.Point(417, 24);
             this.yourClassesText.Name = "yourClassesText";
             this.yourClassesText.ReadOnly = true;
             this.yourClassesText.Size = new System.Drawing.Size(113, 20);
@@ -207,12 +207,12 @@ namespace tkgDatabase
             // 
             this.phoneBox.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.phoneBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.phoneBox.Font = new System.Drawing.Font("Century Gothic", 14F);
+            this.phoneBox.Font = new System.Drawing.Font("Century Gothic", 12F);
             this.phoneBox.ForeColor = System.Drawing.SystemColors.InfoText;
-            this.phoneBox.Location = new System.Drawing.Point(126, 122);
+            this.phoneBox.Location = new System.Drawing.Point(95, 123);
             this.phoneBox.Name = "phoneBox";
             this.phoneBox.ReadOnly = true;
-            this.phoneBox.Size = new System.Drawing.Size(217, 30);
+            this.phoneBox.Size = new System.Drawing.Size(248, 27);
             this.phoneBox.TabIndex = 17;
             this.phoneBox.TabStop = false;
             // 
@@ -233,12 +233,12 @@ namespace tkgDatabase
             // 
             this.addressBox.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.addressBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.addressBox.Font = new System.Drawing.Font("Century Gothic", 14F);
+            this.addressBox.Font = new System.Drawing.Font("Century Gothic", 10F);
             this.addressBox.ForeColor = System.Drawing.SystemColors.InfoText;
-            this.addressBox.Location = new System.Drawing.Point(126, 86);
+            this.addressBox.Location = new System.Drawing.Point(95, 89);
             this.addressBox.Name = "addressBox";
             this.addressBox.ReadOnly = true;
-            this.addressBox.Size = new System.Drawing.Size(217, 30);
+            this.addressBox.Size = new System.Drawing.Size(248, 24);
             this.addressBox.TabIndex = 14;
             this.addressBox.TabStop = false;
             // 
@@ -246,12 +246,12 @@ namespace tkgDatabase
             // 
             this.lastNameBox.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.lastNameBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lastNameBox.Font = new System.Drawing.Font("Century Gothic", 14F);
+            this.lastNameBox.Font = new System.Drawing.Font("Century Gothic", 12F);
             this.lastNameBox.ForeColor = System.Drawing.SystemColors.InfoText;
-            this.lastNameBox.Location = new System.Drawing.Point(126, 49);
+            this.lastNameBox.Location = new System.Drawing.Point(116, 49);
             this.lastNameBox.Name = "lastNameBox";
             this.lastNameBox.ReadOnly = true;
-            this.lastNameBox.Size = new System.Drawing.Size(217, 30);
+            this.lastNameBox.Size = new System.Drawing.Size(227, 27);
             this.lastNameBox.TabIndex = 13;
             this.lastNameBox.TabStop = false;
             // 
@@ -259,12 +259,12 @@ namespace tkgDatabase
             // 
             this.firstNameBox.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.firstNameBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.firstNameBox.Font = new System.Drawing.Font("Century Gothic", 14F);
+            this.firstNameBox.Font = new System.Drawing.Font("Century Gothic", 12F);
             this.firstNameBox.ForeColor = System.Drawing.SystemColors.InfoText;
-            this.firstNameBox.Location = new System.Drawing.Point(126, 13);
+            this.firstNameBox.Location = new System.Drawing.Point(116, 13);
             this.firstNameBox.Name = "firstNameBox";
             this.firstNameBox.ReadOnly = true;
-            this.firstNameBox.Size = new System.Drawing.Size(217, 30);
+            this.firstNameBox.Size = new System.Drawing.Size(227, 27);
             this.firstNameBox.TabIndex = 12;
             this.firstNameBox.TabStop = false;
             // 
@@ -272,12 +272,12 @@ namespace tkgDatabase
             // 
             this.membershipBox.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.membershipBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.membershipBox.Font = new System.Drawing.Font("Century Gothic", 14F);
+            this.membershipBox.Font = new System.Drawing.Font("Century Gothic", 12F);
             this.membershipBox.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.membershipBox.Location = new System.Drawing.Point(167, 158);
+            this.membershipBox.Location = new System.Drawing.Point(163, 158);
             this.membershipBox.Name = "membershipBox";
             this.membershipBox.ReadOnly = true;
-            this.membershipBox.Size = new System.Drawing.Size(176, 30);
+            this.membershipBox.Size = new System.Drawing.Size(180, 27);
             this.membershipBox.TabIndex = 11;
             this.membershipBox.TabStop = false;
             // 
@@ -338,7 +338,7 @@ namespace tkgDatabase
             this.startText.BackColor = System.Drawing.Color.Gold;
             this.startText.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.startText.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.startText.Location = new System.Drawing.Point(406, 264);
+            this.startText.Location = new System.Drawing.Point(358, 264);
             this.startText.Name = "startText";
             this.startText.ReadOnly = true;
             this.startText.Size = new System.Drawing.Size(84, 20);
@@ -351,7 +351,7 @@ namespace tkgDatabase
             this.endText.BackColor = System.Drawing.Color.Gold;
             this.endText.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.endText.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.endText.Location = new System.Drawing.Point(534, 264);
+            this.endText.Location = new System.Drawing.Point(504, 264);
             this.endText.Name = "endText";
             this.endText.ReadOnly = true;
             this.endText.Size = new System.Drawing.Size(75, 20);
@@ -364,7 +364,7 @@ namespace tkgDatabase
             this.registerButton.BackColor = System.Drawing.Color.RoyalBlue;
             this.registerButton.Font = new System.Drawing.Font("Copperplate Gothic Light", 12F);
             this.registerButton.ForeColor = System.Drawing.Color.White;
-            this.registerButton.Location = new System.Drawing.Point(34, 341);
+            this.registerButton.Location = new System.Drawing.Point(24, 329);
             this.registerButton.Name = "registerButton";
             this.registerButton.Size = new System.Drawing.Size(224, 49);
             this.registerButton.TabIndex = 4;
@@ -377,7 +377,7 @@ namespace tkgDatabase
             this.exitButton.BackColor = System.Drawing.Color.RoyalBlue;
             this.exitButton.Font = new System.Drawing.Font("Copperplate Gothic Light", 12F);
             this.exitButton.ForeColor = System.Drawing.Color.White;
-            this.exitButton.Location = new System.Drawing.Point(525, 341);
+            this.exitButton.Location = new System.Drawing.Point(547, 329);
             this.exitButton.Name = "exitButton";
             this.exitButton.Size = new System.Drawing.Size(224, 49);
             this.exitButton.TabIndex = 5;
@@ -390,9 +390,9 @@ namespace tkgDatabase
             this.logoutButton.BackColor = System.Drawing.Color.RoyalBlue;
             this.logoutButton.Font = new System.Drawing.Font("Copperplate Gothic Light", 12F);
             this.logoutButton.ForeColor = System.Drawing.Color.White;
-            this.logoutButton.Location = new System.Drawing.Point(281, 341);
+            this.logoutButton.Location = new System.Drawing.Point(281, 329);
             this.logoutButton.Name = "logoutButton";
-            this.logoutButton.Size = new System.Drawing.Size(224, 49);
+            this.logoutButton.Size = new System.Drawing.Size(231, 49);
             this.logoutButton.TabIndex = 6;
             this.logoutButton.Text = "Logout";
             this.logoutButton.UseVisualStyleBackColor = false;
@@ -402,11 +402,11 @@ namespace tkgDatabase
             // 
             this.instructorBox.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.instructorBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.instructorBox.Font = new System.Drawing.Font("Century Gothic", 14F);
-            this.instructorBox.Location = new System.Drawing.Point(158, 283);
+            this.instructorBox.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.instructorBox.Location = new System.Drawing.Point(141, 283);
             this.instructorBox.Name = "instructorBox";
             this.instructorBox.ReadOnly = true;
-            this.instructorBox.Size = new System.Drawing.Size(210, 30);
+            this.instructorBox.Size = new System.Drawing.Size(188, 27);
             this.instructorBox.TabIndex = 31;
             this.instructorBox.TabStop = false;
             // 
@@ -414,11 +414,11 @@ namespace tkgDatabase
             // 
             this.idBox.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.idBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.idBox.Font = new System.Drawing.Font("Century Gothic", 14F);
-            this.idBox.Location = new System.Drawing.Point(34, 283);
+            this.idBox.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.idBox.Location = new System.Drawing.Point(24, 283);
             this.idBox.Name = "idBox";
             this.idBox.ReadOnly = true;
-            this.idBox.Size = new System.Drawing.Size(95, 30);
+            this.idBox.Size = new System.Drawing.Size(95, 27);
             this.idBox.TabIndex = 0;
             this.idBox.TabStop = false;
             // 
@@ -426,11 +426,11 @@ namespace tkgDatabase
             // 
             this.dayBox.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.dayBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.dayBox.Font = new System.Drawing.Font("Century Gothic", 14F);
-            this.dayBox.Location = new System.Drawing.Point(659, 283);
+            this.dayBox.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.dayBox.Location = new System.Drawing.Point(638, 283);
             this.dayBox.Name = "dayBox";
             this.dayBox.ReadOnly = true;
-            this.dayBox.Size = new System.Drawing.Size(117, 30);
+            this.dayBox.Size = new System.Drawing.Size(124, 27);
             this.dayBox.TabIndex = 36;
             this.dayBox.TabStop = false;
             // 
@@ -438,11 +438,11 @@ namespace tkgDatabase
             // 
             this.endBox.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.endBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.endBox.Font = new System.Drawing.Font("Century Gothic", 14F);
-            this.endBox.Location = new System.Drawing.Point(525, 283);
+            this.endBox.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.endBox.Location = new System.Drawing.Point(495, 283);
             this.endBox.Name = "endBox";
             this.endBox.ReadOnly = true;
-            this.endBox.Size = new System.Drawing.Size(117, 30);
+            this.endBox.Size = new System.Drawing.Size(124, 27);
             this.endBox.TabIndex = 34;
             this.endBox.TabStop = false;
             // 
@@ -450,11 +450,11 @@ namespace tkgDatabase
             // 
             this.startBox.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.startBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.startBox.Font = new System.Drawing.Font("Century Gothic", 14F);
-            this.startBox.Location = new System.Drawing.Point(397, 283);
+            this.startBox.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.startBox.Location = new System.Drawing.Point(349, 283);
             this.startBox.Name = "startBox";
             this.startBox.ReadOnly = true;
-            this.startBox.Size = new System.Drawing.Size(117, 30);
+            this.startBox.Size = new System.Drawing.Size(124, 27);
             this.startBox.TabIndex = 32;
             this.startBox.TabStop = false;
             // 
@@ -462,7 +462,7 @@ namespace tkgDatabase
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(780, 419);
+            this.ClientSize = new System.Drawing.Size(793, 399);
             this.ControlBox = false;
             this.Controls.Add(this.dayBox);
             this.Controls.Add(this.idBox);

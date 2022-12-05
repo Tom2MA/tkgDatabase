@@ -50,6 +50,48 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="addClassForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="addClassForm.Designer.cs">
+      <DependentUpon>addClassForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="addGymForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="addGymForm.Designer.cs">
+      <DependentUpon>addGymForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="addInstructorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="addInstructorForm.Designer.cs">
+      <DependentUpon>addInstructorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="addMemberForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="addMemberForm.Designer.cs">
+      <DependentUpon>addMemberForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="addVendorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="addVendorForm.Designer.cs">
+      <DependentUpon>addVendorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="editGymForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="editGymForm.Designer.cs">
+      <DependentUpon>editGymForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="editInstructorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="editInstructorForm.Designer.cs">
+      <DependentUpon>editInstructorForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="registerForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -102,6 +144,27 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="addClassForm.resx">
+      <DependentUpon>addClassForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="addGymForm.resx">
+      <DependentUpon>addGymForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="addInstructorForm.resx">
+      <DependentUpon>addInstructorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="addMemberForm.resx">
+      <DependentUpon>addMemberForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="addVendorForm.resx">
+      <DependentUpon>addVendorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="editGymForm.resx">
+      <DependentUpon>editGymForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="editInstructorForm.resx">
+      <DependentUpon>editInstructorForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="registerForm.resx">
       <DependentUpon>registerForm.cs</DependentUpon>
     </EmbeddedResource>

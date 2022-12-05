@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.registerFormPanel = new System.Windows.Forms.Panel();
+            this.showPasswordBox = new System.Windows.Forms.CheckBox();
             this.yourAccountText = new System.Windows.Forms.TextBox();
             this.membersPanel = new System.Windows.Forms.Panel();
             this.phoneBox = new System.Windows.Forms.TextBox();
@@ -52,12 +53,24 @@
             // registerFormPanel
             // 
             this.registerFormPanel.BackColor = System.Drawing.Color.Gold;
+            this.registerFormPanel.Controls.Add(this.showPasswordBox);
             this.registerFormPanel.Controls.Add(this.yourAccountText);
             this.registerFormPanel.Controls.Add(this.membersPanel);
             this.registerFormPanel.Location = new System.Drawing.Point(-6, -8);
             this.registerFormPanel.Name = "registerFormPanel";
             this.registerFormPanel.Size = new System.Drawing.Size(464, 319);
             this.registerFormPanel.TabIndex = 4;
+            // 
+            // showPasswordBox
+            // 
+            this.showPasswordBox.AutoSize = true;
+            this.showPasswordBox.Location = new System.Drawing.Point(312, 299);
+            this.showPasswordBox.Name = "showPasswordBox";
+            this.showPasswordBox.Size = new System.Drawing.Size(102, 17);
+            this.showPasswordBox.TabIndex = 6;
+            this.showPasswordBox.Text = "Show Password";
+            this.showPasswordBox.UseVisualStyleBackColor = true;
+            this.showPasswordBox.CheckedChanged += new System.EventHandler(this.showPasswordBox_CheckedChanged);
             // 
             // yourAccountText
             // 
@@ -184,6 +197,7 @@
             this.passwordBox.Size = new System.Drawing.Size(246, 30);
             this.passwordBox.TabIndex = 11;
             this.passwordBox.TabStop = false;
+            this.passwordBox.UseSystemPasswordChar = true;
             // 
             // lastNameBox
             // 
@@ -285,6 +299,7 @@
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.registerButton);
             this.Controls.Add(this.registerFormPanel);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "registerForm";
@@ -316,5 +331,6 @@
         private System.Windows.Forms.TextBox passwordText;
         private System.Windows.Forms.Button registerButton;
         private System.Windows.Forms.Button cancelButton;
+        private System.Windows.Forms.CheckBox showPasswordBox;
     }
 }

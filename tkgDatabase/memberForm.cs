@@ -52,7 +52,6 @@ namespace tkgDatabase
             }
 
             variables.listOfMemClassIDs = new List<String>();
-
             String getMemClassIDQuery = "SELECT * FROM CLASS_ENROLL WHERE ACCOUNT_ID = " + variables.accountID;
             variables.getMemClassIDAdapter = new MySqlDataAdapter(getMemClassIDQuery, connection);
             variables.getMemClassesTable = new DataTable();
@@ -96,15 +95,24 @@ namespace tkgDatabase
         private void logoutButton_Click(object sender, EventArgs e)
         {
             this.Close();
-            Form f1 = new loginForm();
-            f1.Show();
+            Form openLoginForm = new loginForm();
+            openLoginForm.Show();
         }
 
         private void registerButton_Click(object sender, EventArgs e)
         {
-            Form f3 = new availiableClassesForm();
-            f3.Show();
-            this.Close();
+            if (membershipBox.Text == "Standard")
+            {
+                MessageBox.Show("You are not a premium member. Please upgrade your membership before registering for classes.", "Error!", MessageBoxButtons.OK);
+            }
+
+            else if (membershipBox.Text == "Premium")
+            {
+                this.Close();
+                Form openAvailiableClassesForm = new availiableClassesForm();
+                openAvailiableClassesForm.Show();
+            }
+ 
         }
 
         private void yourClassesList_SelectedIndexChanged(object sender, EventArgs e)

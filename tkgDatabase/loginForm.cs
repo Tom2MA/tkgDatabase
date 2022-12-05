@@ -26,13 +26,13 @@ namespace tkgDatabase
         {
             //function that establishes connection to database, database is project server
             MySqlConnectionStringBuilder builder = new MySqlConnectionStringBuilder();
-            builder.Server = "35.222.26.3";
+            builder.Server = "localhost";
             builder.UserID = "root";
-            builder.Password = "projectdatabase";
+            builder.Password = "password";
             builder.Database = "tkgDatabase";
             builder.SslMode = MySqlSslMode.Disabled;
             connection = new MySqlConnection(builder.ToString());
-   
+
         }
 
         private void loginButton_Click(object sender, EventArgs e)

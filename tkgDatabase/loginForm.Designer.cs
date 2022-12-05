@@ -31,6 +31,7 @@ namespace tkgDatabase
         {
             this.mainFormPanel = new System.Windows.Forms.Panel();
             this.mainPanel = new System.Windows.Forms.Panel();
+            this.showPasswordBox = new System.Windows.Forms.CheckBox();
             this.weightPic = new System.Windows.Forms.PictureBox();
             this.exitButton = new System.Windows.Forms.Button();
             this.registerButton = new System.Windows.Forms.Button();
@@ -38,7 +39,6 @@ namespace tkgDatabase
             this.loginButton = new System.Windows.Forms.Button();
             this.passwordBox = new System.Windows.Forms.TextBox();
             this.userBox = new System.Windows.Forms.TextBox();
-            this.showPasswordBox = new System.Windows.Forms.CheckBox();
             this.mainPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.weightPic)).BeginInit();
             this.SuspendLayout();
@@ -67,6 +67,17 @@ namespace tkgDatabase
             this.mainPanel.Name = "mainPanel";
             this.mainPanel.Size = new System.Drawing.Size(682, 339);
             this.mainPanel.TabIndex = 0;
+            // 
+            // showPasswordBox
+            // 
+            this.showPasswordBox.AutoSize = true;
+            this.showPasswordBox.Location = new System.Drawing.Point(536, 209);
+            this.showPasswordBox.Name = "showPasswordBox";
+            this.showPasswordBox.Size = new System.Drawing.Size(102, 17);
+            this.showPasswordBox.TabIndex = 6;
+            this.showPasswordBox.Text = "Show Password";
+            this.showPasswordBox.UseVisualStyleBackColor = true;
+            this.showPasswordBox.CheckedChanged += new System.EventHandler(this.showPasswordBox_CheckedChanged);
             // 
             // weightPic
             // 
@@ -151,30 +162,19 @@ namespace tkgDatabase
             this.userBox.TabIndex = 0;
             this.userBox.Text = "Username";
             // 
-            // showPasswordBox
-            // 
-            this.showPasswordBox.AutoSize = true;
-            this.showPasswordBox.Location = new System.Drawing.Point(536, 209);
-            this.showPasswordBox.Name = "showPasswordBox";
-            this.showPasswordBox.Size = new System.Drawing.Size(102, 17);
-            this.showPasswordBox.TabIndex = 6;
-            this.showPasswordBox.Text = "Show Password";
-            this.showPasswordBox.UseVisualStyleBackColor = true;
-            this.showPasswordBox.CheckedChanged += new System.EventHandler(this.showPasswordBox_CheckedChanged);
-            // 
-            // mainForm
+            // loginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Menu;
-            this.ClientSize = new System.Drawing.Size(796, 446);
+            this.ClientSize = new System.Drawing.Size(793, 434);
             this.ControlBox = false;
             this.Controls.Add(this.mainPanel);
             this.Controls.Add(this.mainFormPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "mainForm";
+            this.Name = "loginForm";
             this.ShowIcon = false;
             this.Text = "TKGym";
             this.mainPanel.ResumeLayout(false);
