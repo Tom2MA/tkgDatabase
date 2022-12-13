@@ -16,4 +16,7 @@ Instructions to run the TKGym Application:
     -Run the script to populate the database
     
   3. Running the TKGym Application:
-    -
+    -First Download SQL Connector: https://dev.mysql.com/downloads/connector/net/
+    -In the Github repository, Download the zip project file
+    -Using Visual Studio open the zipped project file and run it
+    
