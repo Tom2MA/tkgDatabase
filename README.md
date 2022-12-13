@@ -2,7 +2,9 @@
 Instructions to run the TKGym Application:
 
   1. Setting up the database:
+  
     -Install MySQL Workbench
+    
     -Create a new MySQL Connection (Only change the following):
     -Connection Name: *Anything you Want*
     -Hostname: localhost
