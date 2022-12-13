@@ -20,7 +20,7 @@ Instructions to run the TKGym Application:
       
   2. Opening SQL Script (After creating database):
   
-    -First download the script that is located in the Github Repository and save it to your computer
+    -First download the script that is located in the Github Repository called "tkgDatabase.sql" and save it to your computer
     
     -Go to “File” → “Open SQL Script” → Go to the location where you saved the SQL Script, select the script and click “Open”
     
